@@ -9,7 +9,7 @@ async function init(){
     let isLoading = true;
 
 
-    const res = await fetch('https://words.dev-apis.com/word-of-the-day');
+    const res = await fetch('https://words.dev-apis.com/word-of-the-day');//?random=1 for random guesses
     const resObj = await res.json();
     const word = resObj.word.toUpperCase();
     const wordParts = word.split('');
@@ -86,6 +86,7 @@ async function init(){
 
         if(currentGuess === word){
             alert('You Win');
+            document.querySelector('.brand').classList.add('winner');
             done = true;
             return;
         } else if (currentRow === ROUNDS){
@@ -156,4 +157,4 @@ function makeMap(array){
     return Obj; 
 }
 
-init();
+init(); 
